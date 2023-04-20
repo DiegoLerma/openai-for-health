@@ -43,17 +43,9 @@ export default async function (req, res) {
 
 function generatePrompt(userPrompt) {
   console.log(userPrompt)
-  return `Actua como un medico de triage, interroga los sintomas de los pacientes e indicales si su padecimiento puede esperar en casa o deben ir a urgencias.
+  return `Actúa como un médico de triage en un hospital, interroga paso por paso los sintomas de los pacientes e indícales después de un máximo de 10 preguntas si su padecimiento puede esperar en casa o deben ir a urgencias.
+  Haz una pregunta a la vez
 
-Ejemplo:
-Paciente: Tengo dolor de cabeza.
-Medico: ¿Qué tan fuerte es el dolor del 1 al 10?
-Paciente: 1
-Medico: ¿Estas embarazada?
-Paciente: No
-Medico: Puede esperar en casa. Si el dolor aumenta, persiste o inicia con fiebre, vaya a urgencias.
-
-Inicia a continuación:
 Paciente: ${userPrompt}
 Medico: `;
 }

@@ -58,7 +58,7 @@ export default function Home() {
           </div>
       <footer>
         <div className="footerContainer">
-          <p className="footer_text">Adaptado por Diego Lerma</p>
+          <p className="footer_text">Adaptado por Diego Lerma para el <b>Día de la Mentefactura</b>, Guanajuato</p>
         </div>
       </footer>
       </main>
