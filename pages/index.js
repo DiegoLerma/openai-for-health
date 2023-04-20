@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [userInput, setUserInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -14,7 +14,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ prompt: userInput }),
       });
 
       const data = await response.json();
@@ -23,7 +23,7 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setAnimalInput("");
+      setUserInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -34,24 +34,33 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>Triage GTO</title>
+        <link rel="icon" href="/gto.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/gto.png" className={styles.icon} />
+        <h3>Triage Guanajuato</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            name="user"
+            placeholder="Indique sus sintomas"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Enviar" />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result}>
+          <p className="result">
+            {result}
+            </p>
+          </div>
+      <footer>
+        <div className="footerContainer">
+          <p className="footer_text">Adaptado por Diego Lerma</p>
+        </div>
+      </footer>
       </main>
     </div>
   );
